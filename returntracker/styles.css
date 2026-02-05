@@ -1,0 +1,355 @@
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --text: #1f2937;
+    --text-muted: #6b7280;
+    --background: #ffffff;
+    --surface: #f9fafb;
+    --border: #e5e7eb;
+    --success: #10b981;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--background);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.logo-icon {
+    font-size: 32px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    margin-bottom: 40px;
+    opacity: 0.95;
+}
+
+.app-badges {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.badge img {
+    height: 50px;
+}
+
+/* Features Section */
+.features {
+    padding: 80px 0;
+    background: var(--surface);
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 60px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.feature {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.feature-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    color: var(--text-muted);
+}
+
+/* Legal Links */
+.legal-links {
+    padding: 80px 0;
+}
+
+.legal-links h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 60px;
+}
+
+.legal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.legal-card {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    border: 2px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+}
+
+.legal-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+}
+
+.legal-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.legal-card p {
+    color: var(--text-muted);
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+    background: var(--surface);
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact-email {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 15px 30px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.contact-email:hover {
+    background: var(--primary-dark);
+}
+
+.contact-secondary {
+    margin-top: 15px;
+    color: var(--text-muted);
+}
+
+.contact-secondary a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    background: var(--text);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* Legal Pages */
+.legal-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.legal-page h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.legal-page .last-updated {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+.legal-page h2 {
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.legal-page h3 {
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.legal-page p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.legal-page ul {
+    margin: 15px 0 15px 30px;
+}
+
+.legal-page li {
+    margin-bottom: 8px;
+    line-height: 1.8;
+}
+
+.legal-page a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.legal-page a:hover {
+    text-decoration: underline;
+}
+
+.legal-page .contact-box {
+    background: var(--surface);
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+    border: 1px solid var(--border);
+}
+
+.legal-page .contact-box h2 {
+    margin-top: 0;
+}
+
+.legal-page code {
+    background: var(--surface);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .feature-grid,
+    .legal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav {
+        gap: 20px;
+    }
+}
