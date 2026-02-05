@@ -3,117 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Return Tracker - Track Your Returns & Refunds</title>
-    <meta name="description" content="Track product returns, scan receipts, and manage subscriptions with Return Tracker. Never miss a return deadline again.">
-    <link rel="stylesheet" href="/returntracker/styles.css">
+    <title>Return Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            line-height: 1.5;
+            color: #111827;
+            background: #F9FAFB;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #E5E7EB;
+            padding: 16px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            text-decoration: none;
+        }
+
+        nav { display: flex; gap: 24px; }
+
+        nav a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #6B7280;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: #4F46E5; }
+
+        .hero {
+            background: linear-gradient(135deg, #6366F1 0%, #4F46E5 50%, #9333EA 100%);
+            padding: 56px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            opacity: 0.95;
+            color: #E0E7FF;
+        }
+
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #374151;
+            margin-bottom: 0;
+        }
+
+        .card a {
+            color: #4F46E5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .card a:hover { text-decoration: underline; }
+
+        footer {
+            background: white;
+            border-top: 1px solid #E5E7EB;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        footer .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        footer nav {
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            font-size: 12px;
+            color: #9CA3AF;
+        }
+
+        footer p a {
+            color: #6B7280;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 24px; }
+            .hero p { font-size: 14px; }
+            header .container { flex-direction: column; gap: 12px; }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">
-                <span class="logo-icon">📦</span>
-                <span class="logo-text">Return Tracker</span>
-            </div>
+            <a href="./" class="logo">Return Tracker</a>
             <nav>
-                <a href="/returntracker/privacy/">Privacy</a>
-                <a href="/returntracker/terms/">Terms</a>
-                <a href="#contact">Contact</a>
+                <a href="./">Home</a>
+                <a href="privacy/">Privacy</a>
+                <a href="terms/">Terms</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Never Miss a Return Deadline</h1>
-                <p class="hero-subtitle">Track product returns, scan receipts, and manage subscriptions all in one beautiful app.</p>
-                <div class="app-badges">
-                    <a href="#" class="badge">
-                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-                    </a>
-                    <a href="#" class="badge">
-                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
-                    </a>
-                </div>
-            </div>
-        </section>
+    <section class="hero">
+        <h1>Return Tracker</h1>
+        <p>Track returns, scan receipts, never miss a refund.</p>
+    </section>
 
-        <section class="features">
-            <div class="container">
-                <h2>Features</h2>
-                <div class="feature-grid">
-                    <div class="feature">
-                        <span class="feature-icon">📸</span>
-                        <h3>Smart Receipt Scanning</h3>
-                        <p>AI-powered receipt scanning extracts all the details automatically</p>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">⏰</span>
-                        <h3>Deadline Reminders</h3>
-                        <p>Get notified before return deadlines so you never lose money</p>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">📊</span>
-                        <h3>Analytics & Insights</h3>
-                        <p>Track your spending, returns, and refunds with detailed analytics</p>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">💳</span>
-                        <h3>Subscription Tracking</h3>
-                        <p>Manage all your recurring subscriptions and billing dates</p>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">📍</span>
-                        <h3>Nearby Drop-offs</h3>
-                        <p>Find nearby store locations for easy return drop-offs</p>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">🔒</span>
-                        <h3>Private & Secure</h3>
-                        <p>Your data is encrypted and protected with industry-standard security</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <main class="content">
+        <div class="card">
+            <h2>About</h2>
+            <p>Return Tracker is an app to track product returns and refunds. Use receipts, set reminders, and manage returns in one place.</p>
+        </div>
 
-        <section class="legal-links">
-            <div class="container">
-                <h2>Legal</h2>
-                <div class="legal-grid">
-                    <a href="/returntracker/privacy/" class="legal-card">
-                        <h3>Privacy Policy</h3>
-                        <p>Learn how we protect and handle your data</p>
-                    </a>
-                    <a href="/returntracker/terms/" class="legal-card">
-                        <h3>Terms of Service</h3>
-                        <p>Read our terms and conditions of use</p>
-                    </a>
-                    <a href="/returntracker/cookies/" class="legal-card">
-                        <h3>Cookie Policy</h3>
-                        <p>Understand how we use cookies on this website</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <p>Have questions or need support?</p>
-                <a href="mailto:support@metamaker.in" class="contact-email">support@metamaker.in</a>
-                <p class="contact-secondary">For privacy inquiries: <a href="mailto:privacy@metamaker.in">privacy@metamaker.in</a></p>
-            </div>
-        </section>
+        <div class="card">
+            <h2>Contact</h2>
+            <p><a href="mailto:support@metamaker.in">support@metamaker.in</a></p>
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Return Tracker. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="/returntracker/privacy/">Privacy Policy</a>
-                <a href="/returntracker/terms/">Terms of Service</a>
-                <a href="/returntracker/cookies/">Cookie Policy</a>
-            </div>
+            <nav>
+                <a href="privacy/">Privacy</a>
+                <a href="terms/">Terms</a>
+            </nav>
+            <p>&copy; 2026 <a href="../">Metamaker</a></p>
         </div>
     </footer>
 </body>

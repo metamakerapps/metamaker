@@ -4,81 +4,175 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - Return Tracker</title>
-    <link rel="stylesheet" href="/returntracker/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            line-height: 1.6;
+            color: #111827;
+            background: #F9FAFB;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #E5E7EB;
+            padding: 16px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            text-decoration: none;
+        }
+
+        nav { display: flex; gap: 24px; }
+
+        nav a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #6B7280;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: #4F46E5; }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .legal-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 6px;
+        }
+
+        .updated {
+            font-size: 13px;
+            color: #9CA3AF;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #4F46E5;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        h2:first-of-type { margin-top: 0; }
+
+        p {
+            font-size: 14px;
+            color: #374151;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #4F46E5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover { text-decoration: underline; }
+
+        footer {
+            background: white;
+            border-top: 1px solid #E5E7EB;
+            padding: 24px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        footer nav {
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        footer p { font-size: 12px; color: #9CA3AF; }
+        footer p a { color: #6B7280; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 20px; }
+            .legal-card { padding: 20px; }
+            header .container { flex-direction: column; gap: 12px; }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <a href="/returntracker/" class="logo">
-                <span class="logo-icon">📦</span>
-                <span class="logo-text">Return Tracker</span>
-            </a>
+            <a href="../" class="logo">Return Tracker</a>
             <nav>
-                <a href="/returntracker/">Home</a>
-                <a href="/returntracker/privacy/">Privacy</a>
+                <a href="../">Home</a>
+                <a href="../privacy/">Privacy</a>
+                <a href="../terms/">Terms</a>
             </nav>
         </div>
     </header>
 
-    <main class="legal-page">
-        <h1>Terms of Service</h1>
-        <p class="last-updated">Last Updated: February 4, 2026</p>
+    <main>
+        <div class="legal-card">
+            <h1>Terms of Service</h1>
+            <p class="updated">Last updated: February 2026</p>
 
-        <p>By using Return Tracker, you agree to these terms. If you don't agree, please don't use the app.</p>
+            <h2>Agreement</h2>
+            <p>By using Return Tracker you agree to these terms.</p>
 
-        <h2>1. The Service</h2>
-        <p>Return Tracker is a mobile app that helps you track product returns, scan receipts, and manage subscriptions. The service is provided "as is" and we may modify or discontinue features at any time.</p>
+            <h2>Service</h2>
+            <p>The app is provided "as is." We do not guarantee that reminders or notifications will always work. Please verify return deadlines yourself.</p>
 
-        <h2>2. Your Account</h2>
-        <p>You must be at least 13 years old to use Return Tracker. You're responsible for keeping your account secure and for all activity under your account. Provide accurate information and keep your email up to date.</p>
+            <h2>Limitation of liability</h2>
+            <p>We are not liable for missed deadlines, refunds, or any loss arising from use of the app.</p>
 
-        <h2>3. Your Content</h2>
-        <p>You own all the data you add to Return Tracker (returns, receipts, notes, images). By using the service, you give us permission to store and process your content to provide the app's features. We won't share your content with others without your permission.</p>
+            <h2>Age</h2>
+            <p>You must be 13 or older to use Return Tracker.</p>
 
-        <h2>4. Acceptable Use</h2>
-        <p>Don't:</p>
-        <ul>
-            <li>Use the app for illegal purposes</li>
-            <li>Try to hack or disrupt the service</li>
-            <li>Upload malicious code or viruses</li>
-            <li>Abuse or harass other users or our staff</li>
-            <li>Violate others' intellectual property rights</li>
-        </ul>
-
-        <h2>5. Subscriptions & Payments</h2>
-        <p>Return Tracker offers both free and premium (paid) features. Premium subscriptions are billed monthly or yearly through Apple App Store or Google Play Store. Subscriptions automatically renew unless canceled. Cancel anytime in your device settings. No refunds for partial periods.</p>
-
-        <h2>6. No Warranties</h2>
-        <p>Return Tracker is provided "as is" without warranties. We don't guarantee the app will always work perfectly or that deadline reminders will always arrive on time. You're responsible for verifying return deadlines and store policies yourself.</p>
-
-        <h2>7. Limitation of Liability</h2>
-        <p>We're not liable for missed return deadlines, lost data, or any indirect damages. Our total liability to you is limited to the amount you paid us in the past 12 months (or $100, whichever is greater).</p>
-
-        <h2>8. Termination</h2>
-        <p>You can delete your account anytime in Settings. We may suspend or terminate accounts that violate these terms. If your account is terminated, you won't get refunds for unused subscription time.</p>
-
-        <h2>9. Changes to Terms</h2>
-        <p>We may update these terms from time to time. We'll notify you of significant changes. Continued use after changes means you accept the new terms.</p>
-
-        <h2>10. Governing Law</h2>
-        <p>These terms are governed by applicable laws. Any disputes will be resolved through binding arbitration.</p>
-
-        <div class="contact-box">
             <h2>Contact</h2>
-            <p>Questions about these terms? Contact us at:</p>
-            <p><strong>Email:</strong> <a href="mailto:support@metamaker.in">support@metamaker.in</a></p>
+            <p><a href="mailto:support@metamaker.in">support@metamaker.in</a></p>
         </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Return Tracker by Metamaker. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="/returntracker/">Home</a>
-                <a href="/returntracker/privacy/">Privacy</a>
-                <a href="/returntracker/terms/">Terms</a>
-                <a href="/returntracker/disclaimer/">Disclaimer</a>
-            </div>
+            <nav>
+                <a href="../">Home</a>
+                <a href="../privacy/">Privacy</a>
+                <a href="../terms/">Terms</a>
+            </nav>
+            <p>&copy; 2026 <a href="../../">Metamaker</a></p>
         </div>
     </footer>
 </body>
