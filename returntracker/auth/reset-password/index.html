@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password - Return Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            line-height: 1.5;
+            color: #111827;
+            background: #F9FAFB;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #E5E7EB;
+            padding: 16px 20px;
+        }
+
+        header .container {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            text-decoration: none;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 40px 32px;
+            max-width: 440px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #6366F1 0%, #4F46E5 50%, #9333EA 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 15px;
+            color: #6B7280;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 15px;
+            font-family: inherit;
+            border: 1px solid #D1D5DB;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="password"]:focus {
+            border-color: #6366F1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .error-text {
+            font-size: 13px;
+            color: #DC2626;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            margin-top: 8px;
+        }
+
+        .btn:hover { opacity: 0.9; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .hint {
+            font-size: 13px;
+            color: #9CA3AF;
+            margin-top: 16px;
+            margin-bottom: 0;
+        }
+
+        .success-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .alert {
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .alert-error {
+            background: #FEF2F2;
+            color: #DC2626;
+            border: 1px solid #FECACA;
+        }
+
+        .alert-success {
+            background: #F0FDF4;
+            color: #16A34A;
+            border: 1px solid #BBF7D0;
+        }
+
+        .password-rules {
+            text-align: left;
+            font-size: 13px;
+            color: #9CA3AF;
+            margin-top: 8px;
+            margin-bottom: 16px;
+        }
+
+        .password-rules li {
+            margin-left: 16px;
+            margin-bottom: 2px;
+        }
+
+        .hidden { display: none; }
+
+        footer {
+            background: white;
+            border-top: 1px solid #E5E7EB;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 12px;
+            color: #9CA3AF;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 600px) {
+            .card { padding: 32px 20px; }
+            h1 { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="/returntracker/" class="logo">Return Tracker</a>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Loading state -->
+        <div class="card" id="loading-card">
+            <div class="icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2v4m0 12v4m-8-10H0m24 0h-4m-2.34-5.66l-2.83 2.83m-5.66 5.66l-2.83 2.83m0-11.32l2.83 2.83m5.66 5.66l2.83 2.83"></path></svg>
+            </div>
+            <h1>Verifying...</h1>
+            <p>Please wait while we verify your reset link.</p>
+        </div>
+
+        <!-- Reset form -->
+        <div class="card hidden" id="reset-card">
+            <div class="icon">
+                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <h1>Set New Password</h1>
+            <p>Enter your new password below.</p>
+
+            <div id="form-alert" class="hidden"></div>
+
+            <form id="reset-form" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="password">New Password</label>
+                    <input type="password" id="password" placeholder="Enter new password" required minlength="6" autocomplete="new-password">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm new password" required minlength="6" autocomplete="new-password">
+                    <div class="error-text" id="match-error">Passwords do not match</div>
+                </div>
+                <ul class="password-rules">
+                    <li>At least 6 characters</li>
+                </ul>
+                <button type="submit" class="btn" id="submit-btn">Update Password</button>
+            </form>
+        </div>
+
+        <!-- Success state -->
+        <div class="card hidden" id="success-card">
+            <div class="icon">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h1>Password Updated</h1>
+            <p>Your password has been updated successfully. You can now sign in with your new password.</p>
+            <a href="io.supabase.returntracker://login-callback/" class="btn" style="text-decoration: none;">Open App</a>
+            <p class="hint">If the button doesn't work, open the Return Tracker app and sign in.</p>
+        </div>
+
+        <!-- Error state -->
+        <div class="card hidden" id="error-card">
+            <div class="icon" style="background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </div>
+            <h1>Link Expired</h1>
+            <p>This password reset link has expired or is invalid. Please request a new one from the app.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Metamaker</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script>
+        // Supabase project configs (anon keys are public/client-safe)
+        const PROJECTS = {
+            'tbritfeoroljblxvpwbj': {
+                url: 'https://tbritfeoroljblxvpwbj.supabase.co',
+                anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRicml0ZmVvcm9samJseHZwd2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAwODQyNjEsImV4cCI6MjA4NTY2MDI2MX0.EYPBQasKdqnOaYdePCA8nT7xiLBbZWvS_tOUVF_Ynqo'
+            },
+            'xpuqwluwbcssyzaitdcu': {
+                url: 'https://xpuqwluwbcssyzaitdcu.supabase.co',
+                anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhwdXF3bHV3YmNzc3l6YWl0ZGN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAwODI2MjAsImV4cCI6MjA4NTY1ODYyMH0.8aA6uIv9_ZgZofUcXWrXAVJbNCSFSwIplVSY8VPopF4'
+            }
+        };
+
+        function show(id) {
+            document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function showFormAlert(message, type) {
+            const alert = document.getElementById('form-alert');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            alert.classList.remove('hidden');
+        }
+
+        // Detect project from access token JWT
+        function detectProject(token) {
+            try {
+                const payload = JSON.parse(atob(token.split('.')[1]));
+                const ref = payload.iss?.split('//')[1]?.split('.')[0];
+                if (ref && PROJECTS[ref]) return PROJECTS[ref];
+            } catch (e) {}
+            // Default to prod
+            return PROJECTS['xpuqwluwbcssyzaitdcu'];
+        }
+
+        async function init() {
+            // Parse hash fragment for tokens
+            const hash = window.location.hash.substring(1);
+            const params = new URLSearchParams(hash);
+            const accessToken = params.get('access_token');
+            const refreshToken = params.get('refresh_token');
+            const type = params.get('type');
+
+            // Also check query params for PKCE flow
+            const queryParams = new URLSearchParams(window.location.search);
+            const code = queryParams.get('code');
+
+            if (!accessToken && !code) {
+                show('error-card');
+                return;
+            }
+
+            try {
+                let project;
+                let supabaseClient;
+
+                if (accessToken) {
+                    // Implicit flow - tokens in hash
+                    project = detectProject(accessToken);
+                    supabaseClient = supabase.createClient(project.url, project.anonKey);
+                    await supabaseClient.auth.setSession({
+                        access_token: accessToken,
+                        refresh_token: refreshToken
+                    });
+                } else if (code) {
+                    // PKCE flow - code in query params
+                    // Default to prod, try to exchange
+                    project = PROJECTS['xpuqwluwbcssyzaitdcu'];
+                    supabaseClient = supabase.createClient(project.url, project.anonKey);
+                    const { error } = await supabaseClient.auth.exchangeCodeForSession(code);
+                    if (error) {
+                        // Try dev project
+                        project = PROJECTS['tbritfeoroljblxvpwbj'];
+                        supabaseClient = supabase.createClient(project.url, project.anonKey);
+                        const result = await supabaseClient.auth.exchangeCodeForSession(code);
+                        if (result.error) {
+                            show('error-card');
+                            return;
+                        }
+                    }
+                }
+
+                // Show the reset form
+                show('reset-card');
+
+                // Handle form submission
+                const form = document.getElementById('reset-form');
+                const passwordInput = document.getElementById('password');
+                const confirmInput = document.getElementById('confirm-password');
+                const matchError = document.getElementById('match-error');
+                const submitBtn = document.getElementById('submit-btn');
+
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    matchError.style.display = 'none';
+                    document.getElementById('form-alert').classList.add('hidden');
+
+                    const password = passwordInput.value;
+                    const confirm = confirmInput.value;
+
+                    if (password.length < 6) {
+                        showFormAlert('Password must be at least 6 characters', 'error');
+                        return;
+                    }
+
+                    if (password !== confirm) {
+                        matchError.style.display = 'block';
+                        return;
+                    }
+
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Updating...';
+
+                    try {
+                        const { error } = await supabaseClient.auth.updateUser({
+                            password: password
+                        });
+
+                        if (error) {
+                            showFormAlert(error.message, 'error');
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Update Password';
+                        } else {
+                            show('success-card');
+                        }
+                    } catch (err) {
+                        showFormAlert('Something went wrong. Please try again.', 'error');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Update Password';
+                    }
+                });
+
+            } catch (e) {
+                show('error-card');
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>
