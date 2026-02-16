@@ -89,11 +89,18 @@
 
         h2:first-of-type { margin-top: 0; }
 
-        p {
+        p, li {
             font-size: 14px;
             color: #374151;
             margin-bottom: 10px;
         }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        li { margin-bottom: 4px; }
 
         a {
             color: #4F46E5;
@@ -146,16 +153,78 @@
     <main>
         <div class="legal-card">
             <h1>Privacy Policy</h1>
-            <p class="updated">Last updated: February 2026</p>
+            <p class="updated">Last updated: February 15, 2026</p>
 
-            <h2>Data we collect</h2>
-            <p>Account and profile info, return and receipt data you add, and usage/device data to run the service. We do not sell your data.</p>
+            <h2>Introduction</h2>
+            <p>Return Tracker ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our mobile application.</p>
 
-            <h2>Your choices</h2>
-            <p>You can delete your account at any time to remove your data. Contact us for any privacy request.</p>
+            <h2>Information we collect</h2>
+            <p><strong>Information you provide:</strong></p>
+            <ul>
+                <li>Account information (email address and password)</li>
+                <li>Return data (product names, store names, prices, dates, and notes)</li>
+                <li>Profile information (optional display name and profile picture)</li>
+                <li>Receipt images (photos of receipts you choose to scan)</li>
+            </ul>
+            <p><strong>Information collected automatically:</strong></p>
+            <ul>
+                <li>Device information (device type, operating system version)</li>
+                <li>Crash reports (you can opt out in Settings)</li>
+                <li>Authentication tokens for keeping you logged in</li>
+            </ul>
+
+            <h2>How we use your information</h2>
+            <ul>
+                <li>Provide and maintain the Return Tracker service</li>
+                <li>Send you deadline reminder notifications</li>
+                <li>Sync your data across devices</li>
+                <li>Extract data from receipt images using AI (when you use the scan feature)</li>
+                <li>Generate return predictions using AI (when you request predictions)</li>
+                <li>Improve our app and fix bugs</li>
+            </ul>
+
+            <h2>AI features and third-party services</h2>
+            <p>Return Tracker offers optional AI-powered features that require sharing certain data with third-party AI services. <strong>You control when AI features are used.</strong> The app asks for your explicit consent before sending any data to AI services.</p>
+
+            <p><strong>Receipt Scanning:</strong> When you scan a receipt, your receipt image is sent to <strong>Google Gemini AI</strong> for processing. Google processes the image to extract product, store, price, and date information. Images are processed in real-time and not stored by the AI provider.</p>
+
+            <p><strong>Return Predictions:</strong> When you request return predictions, your purchase data (product names, prices, stores, dates) is sent to <strong>Groq AI</strong> for analysis. Data is processed in real-time and not stored by Groq.</p>
+
+            <p><strong>AI Quality Monitoring:</strong> We use <strong>Langfuse</strong> to monitor the quality of AI prompts and improve feature accuracy. Langfuse receives anonymized metadata about AI requests (no personal identifiers, receipt images, or full return details).</p>
+
+            <p>You can manage AI feature consent and reset permissions at any time in Settings &rarr; Privacy &amp; Security.</p>
+
+            <h2>Data storage and security</h2>
+            <ul>
+                <li>Your data is stored securely using Supabase, a trusted cloud platform</li>
+                <li>All data is encrypted in transit (HTTPS/TLS)</li>
+                <li>We use industry-standard security measures to protect your information</li>
+                <li>Your password is hashed and never stored in plain text</li>
+            </ul>
+
+            <h2>Data sharing</h2>
+            <p>We do <strong>not</strong> sell your personal information, share your data with advertisers, or share your return information with stores or retailers.</p>
+            <p>We may share data only:</p>
+            <ul>
+                <li>With service providers who help us operate the app (Supabase, RevenueCat, Sentry)</li>
+                <li>With AI service providers when you use optional AI features (Google Gemini AI, Groq AI, Langfuse) as described above</li>
+                <li>If required by law or legal process</li>
+                <li>To protect our rights or safety</li>
+            </ul>
+
+            <h2>Your rights</h2>
+            <p>You have the right to access your personal data, export your data, delete your account and all associated data, opt out of non-essential notifications, and opt out of crash reports.</p>
+            <p>To delete your account: Settings &rarr; Account &rarr; Delete Account.</p>
+            <p>To exercise other rights, contact us at <a href="mailto:privacy@metamaker.in">privacy@metamaker.in</a>.</p>
+
+            <h2>Children's privacy</h2>
+            <p>Return Tracker is not intended for children under 13. We do not knowingly collect information from children under 13.</p>
+
+            <h2>Changes to this policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy in the app and updating the "Last Updated" date.</p>
 
             <h2>Contact</h2>
-            <p><a href="mailto:support@metamaker.in">support@metamaker.in</a></p>
+            <p>If you have questions about this Privacy Policy, please contact us at <a href="mailto:privacy@metamaker.in">privacy@metamaker.in</a>.</p>
         </div>
     </main>
 
