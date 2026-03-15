@@ -502,6 +502,7 @@
       padding: 24px;
       opacity: 0;
       transition: opacity .45s ease;
+      cursor: zoom-in;
     }
 
     .work-slide.active { opacity: 1; }
@@ -600,6 +601,188 @@
     .work-pills {
       display: flex;
       flex-wrap: wrap;
+    }
+
+    .image-dialog {
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      width: min(92vw, 1100px);
+      min-height: 0;
+      max-width: none;
+      border: 1px solid rgba(157, 179, 236, 0.2);
+      border-radius: 28px;
+      padding: 0;
+      background: rgba(5, 9, 22, 0.88);
+      box-shadow: 0 40px 110px rgba(0, 0, 0, 0.58);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(18px) scale(.96);
+      transition: opacity .28s ease, transform .28s ease;
+    }
+
+    .image-dialog[open] {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .image-dialog::backdrop {
+      background:
+        radial-gradient(circle at top, rgba(49,214,255,.09), transparent 28%),
+        rgba(3, 6, 15, 0.82);
+      backdrop-filter: blur(14px);
+    }
+
+    .dialog-shell {
+      position: relative;
+      padding: 18px 18px 16px;
+      background:
+        radial-gradient(circle at top, rgba(49,214,255,.16), transparent 36%),
+        linear-gradient(180deg, rgba(16, 23, 44, 0.98), rgba(6, 10, 24, 0.98));
+    }
+
+    .dialog-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 4px 4px 10px;
+    }
+
+    .dialog-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(157, 179, 236, 0.18);
+      background: rgba(8, 14, 30, 0.56);
+      color: #d6e5ff;
+      font-size: .82rem;
+      letter-spacing: .02em;
+    }
+
+    .dialog-badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: 0 0 12px rgba(49,214,255,.45);
+    }
+
+    .dialog-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dialog-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(157, 179, 236, 0.22);
+      background: rgba(7, 12, 26, 0.72);
+      color: var(--text);
+      font-size: 1rem;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .dialog-icon:hover {
+      transform: translateY(-1px);
+      border-color: rgba(49,214,255,.45);
+      background: rgba(10, 18, 36, 0.92);
+    }
+
+    .dialog-stage {
+      min-height: min(76vh, 760px);
+      display: grid;
+      place-items: center;
+      padding: 14px 22px 18px;
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)),
+        rgba(7, 12, 26, 0.42);
+    }
+
+    .dialog-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      border: 1px solid rgba(157, 179, 236, 0.24);
+      background: rgba(7, 12, 26, 0.78);
+      color: var(--text);
+      font-size: 1.35rem;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      z-index: 2;
+    }
+
+    .dialog-nav:hover {
+      transform: translateY(-50%) scale(1.04);
+      border-color: rgba(49,214,255,.45);
+      background: rgba(10, 18, 36, 0.92);
+    }
+
+    .dialog-prev { left: 18px; }
+    .dialog-next { right: 18px; }
+
+    .dialog-stage img {
+      display: block;
+      max-width: 100%;
+      max-height: 72vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 28px 52px rgba(0, 0, 0, 0.42));
+    }
+
+    .dialog-stage img.is-phone {
+      border-radius: 28px;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    .dialog-caption {
+      padding: 12px 8px 2px;
+      color: #bfd0f4;
+      font-size: .9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .image-dialog {
+        width: min(96vw, 1100px);
+        border-radius: 22px;
+      }
+
+      .dialog-topbar {
+        padding-bottom: 8px;
+      }
+
+      .dialog-badge {
+        font-size: .78rem;
+        padding: 7px 10px;
+      }
+
+      .dialog-stage {
+        min-height: min(68vh, 620px);
+        padding: 10px 12px 14px;
+      }
+
+      .dialog-nav {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+      }
+
+      .dialog-prev { left: 10px; }
+      .dialog-next { right: 10px; }
     }
 
     .pricing-wrap {
@@ -1285,6 +1468,23 @@
     </div>
   </footer>
 
+  <dialog class="image-dialog" id="imageDialog" aria-label="Expanded project screenshot">
+    <div class="dialog-shell">
+      <div class="dialog-topbar">
+        <div class="dialog-badge">Project Preview</div>
+        <div class="dialog-actions">
+          <button class="dialog-icon" type="button" id="imageDialogClose" aria-label="Close image dialog">✕</button>
+        </div>
+      </div>
+      <div class="dialog-stage">
+        <button class="dialog-nav dialog-prev" type="button" id="imageDialogPrev" aria-label="Previous project screenshot">‹</button>
+        <img id="imageDialogImg" alt="" />
+        <button class="dialog-nav dialog-next" type="button" id="imageDialogNext" aria-label="Next project screenshot">›</button>
+      </div>
+      <p class="dialog-caption" id="imageDialogCaption"></p>
+    </div>
+  </dialog>
+
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -1367,7 +1567,77 @@
       });
     });
 
+    // Expanded screenshot dialog for work carousels.
+    const imageDialog = document.getElementById('imageDialog');
+    const imageDialogImg = document.getElementById('imageDialogImg');
+    const imageDialogCaption = document.getElementById('imageDialogCaption');
+    const imageDialogClose = document.getElementById('imageDialogClose');
+    const imageDialogPrev = document.getElementById('imageDialogPrev');
+    const imageDialogNext = document.getElementById('imageDialogNext');
+    const dialogShell = imageDialog?.querySelector('.dialog-shell');
+    let activeDialogCarousel = null;
+    let activeDialogSlides = [];
+    let activeDialogIndex = 0;
+
+    const updateDialogImage = () => {
+      const activeSlide = activeDialogSlides[activeDialogIndex];
+      const activeImage = activeSlide?.querySelector('img');
+      if (!imageDialogImg || !imageDialogCaption || !activeImage) return;
+      imageDialogImg.src = activeImage.currentSrc || activeImage.src;
+      imageDialogImg.alt = activeImage.alt || 'Expanded project screenshot';
+      imageDialogImg.classList.toggle('is-phone', activeSlide.classList.contains('is-phone'));
+      imageDialogCaption.textContent = activeImage.alt || '';
+    };
+
+    const stepDialog = (delta) => {
+      if (!activeDialogSlides.length) return;
+      activeDialogIndex = (activeDialogIndex + delta + activeDialogSlides.length) % activeDialogSlides.length;
+      updateDialogImage();
+    };
+
+    const openImageDialog = (carousel, slides, slideIndex) => {
+      if (!imageDialog || !slides.length) return;
+      activeDialogCarousel = carousel;
+      activeDialogSlides = slides;
+      activeDialogIndex = slideIndex;
+      updateDialogImage();
+      imageDialog.showModal();
+    };
+
+    imageDialogClose?.addEventListener('click', () => imageDialog?.close());
+    imageDialogPrev?.addEventListener('click', () => stepDialog(-1));
+    imageDialogNext?.addEventListener('click', () => stepDialog(1));
+    imageDialog?.addEventListener('click', (event) => {
+      if (!dialogShell) return;
+      const rect = dialogShell.getBoundingClientRect();
+      const insideShell =
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom;
+      if (!insideShell) imageDialog.close();
+    });
+    imageDialog?.addEventListener('close', () => {
+      imageDialogImg?.removeAttribute('src');
+      imageDialogImg?.classList.remove('is-phone');
+      if (imageDialogCaption) imageDialogCaption.textContent = '';
+      activeDialogCarousel = null;
+      activeDialogSlides = [];
+      activeDialogIndex = 0;
+    });
+    document.addEventListener('keydown', (event) => {
+      if (!imageDialog?.open) return;
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        stepDialog(-1);
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        stepDialog(1);
+      }
+    });
+
     // Auto-rotating work carousels with manual controls.
+
     document.querySelectorAll('[data-carousel]').forEach((carousel) => {
       const slides = Array.from(carousel.querySelectorAll('.work-slide'));
       const dots = Array.from(carousel.querySelectorAll('[data-carousel-dot]'));
@@ -1403,6 +1673,12 @@
         dot.addEventListener('click', () => {
           render(dotIndex);
           restart();
+        });
+      });
+
+      slides.forEach((slide, slideIndex) => {
+        slide.addEventListener('click', () => {
+          openImageDialog(carousel, slides, slideIndex);
         });
       });
 
