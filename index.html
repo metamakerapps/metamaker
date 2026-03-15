@@ -57,6 +57,56 @@
       animation: drift 28s linear infinite;
     }
 
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: .04;
+      background-image: radial-gradient(circle at 20% 20%, #fff 0.7px, transparent 0.8px);
+      background-size: 4px 4px;
+      mix-blend-mode: soft-light;
+    }
+
+    .blob {
+      position: fixed;
+      width: 36vw;
+      max-width: 520px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: .28;
+      pointer-events: none;
+      z-index: 1;
+      transform: translate3d(0,0,0);
+      transition: transform .2s linear;
+    }
+
+    .blob-a {
+      background: radial-gradient(circle, rgba(49,214,255,.6), rgba(49,214,255,0));
+      top: -8vh;
+      right: -8vw;
+    }
+
+    .blob-b {
+      background: radial-gradient(circle, rgba(139,92,246,.6), rgba(139,92,246,0));
+      bottom: -18vh;
+      left: -10vw;
+    }
+
+    .cursor-glow {
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 2;
+      opacity: .22;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(49,214,255,.35), rgba(49,214,255,0) 68%);
+      transition: opacity .25s ease;
+    }
+
     @keyframes drift {
       0% { transform: translateY(0); }
       100% { transform: translateY(40px); }
@@ -157,6 +207,27 @@
       background: linear-gradient(100deg, var(--brand), var(--brand-2));
       color: #02050f;
       box-shadow: 0 10px 26px rgba(49,214,255,0.25);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      inset: -120% auto auto -60%;
+      width: 42%;
+      height: 280%;
+      transform: rotate(20deg);
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.48), rgba(255,255,255,0));
+      animation: sheen 4.8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes sheen {
+      0%, 78% { left: -70%; }
+      100% { left: 145%; }
     }
 
     .btn-soft {
@@ -399,6 +470,12 @@
       box-shadow: var(--shadow);
     }
 
+    .tilt {
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform .2s ease;
+    }
+
     .work-card img {
       width: 100%;
       height: 220px;
@@ -594,6 +671,10 @@
 </head>
 <body>
   <div class="ambient" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="blob blob-a" data-parallax="8" aria-hidden="true"></div>
+  <div class="blob blob-b" data-parallax="14" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
   <header>
     <div class="container nav">
@@ -928,6 +1009,59 @@
         requestAnimationFrame(run);
       };
       run();
+    });
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Cursor spotlight glow effect.
+    const cursorGlow = document.getElementById('cursorGlow');
+    if (cursorGlow && !prefersReducedMotion) {
+      window.addEventListener('pointermove', (e) => {
+        cursorGlow.style.left = `${e.clientX}px`;
+        cursorGlow.style.top = `${e.clientY}px`;
+      });
+      window.addEventListener('pointerdown', () => cursorGlow.style.opacity = '.34');
+      window.addEventListener('pointerup', () => cursorGlow.style.opacity = '.22');
+    } else if (cursorGlow) {
+      cursorGlow.style.display = 'none';
+    }
+
+    // Subtle parallax drift for ambient blobs.
+    const blobs = document.querySelectorAll('[data-parallax]');
+    if (!prefersReducedMotion) {
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        blobs.forEach((el) => {
+          const rate = Number(el.dataset.parallax || 10);
+          el.style.transform = `translate3d(0, ${y / rate}px, 0)`;
+        });
+      }, { passive: true });
+    }
+
+    // 3D tilt interaction for premium cards.
+    const tiltTargets = document.querySelectorAll('.cap-card, .work-card, .price-card, .team-card, .quote-card, .ai-item, .hero-card');
+    tiltTargets.forEach((el) => {
+      el.classList.add('tilt');
+      if (prefersReducedMotion) return;
+
+      let rafId = null;
+      const applyTilt = (clientX, clientY) => {
+        const rect = el.getBoundingClientRect();
+        const px = (clientX - rect.left) / rect.width;
+        const py = (clientY - rect.top) / rect.height;
+        const rx = (0.5 - py) * 6;
+        const ry = (px - 0.5) * 7;
+        el.style.transform = `perspective(900px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-2px)`;
+      };
+
+      el.addEventListener('pointermove', (e) => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => applyTilt(e.clientX, e.clientY));
+      });
+      el.addEventListener('pointerleave', () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        el.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
     });
   </script>
 </body>
