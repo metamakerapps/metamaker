@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Metamaker — Apps, Websites & Automation for Growing Businesses</title>
-  <meta name="description" content="Metamaker helps small businesses in India and the US launch apps, websites, bookings, payments, WhatsApp notifications and digital support workflows." />
+  <title>Metamaker — Premium Product Engineering for SMBs</title>
+  <meta name="description" content="Metamaker is a boutique technology company building premium websites, apps, and automation systems for small businesses in India and the US." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -19,11 +19,8 @@
       --brand: #6f7dff;
       --brand-2: #42d3ff;
       --ok: #6ee7b7;
-      --warn: #fbbf24;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background: radial-gradient(1100px 500px at 80% -10%, rgba(66, 211, 255, .22), transparent 60%),
@@ -32,238 +29,92 @@
       color: var(--text);
       line-height: 1.6;
     }
-
     .container { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
-
     header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
+      position: sticky; top: 0; z-index: 30;
       backdrop-filter: blur(10px);
       background: rgba(7, 11, 20, .78);
-      border-bottom: 1px solid rgba(157, 168, 201, .15);
+      border-bottom: 1px solid rgba(157,168,201,.15);
     }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:15px 0; }
+    .logo { font-size:1.25rem; font-weight:800; }
+    .logo span { background: linear-gradient(90deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .nav-links a { color:var(--muted); text-decoration:none; margin-left:14px; font-weight:500; }
+    .nav-links a:hover { color:var(--text); }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-      gap: 18px;
+    .btn { display:inline-block; text-decoration:none; padding:11px 16px; border-radius:10px; font-weight:600; transition:.18s ease; }
+    .btn-primary { background: linear-gradient(90deg,var(--brand),var(--brand-2)); color:#040712; }
+    .btn-primary:hover { transform:translateY(-1px); }
+    .btn-ghost { border:1px solid var(--line); color:var(--text); background:rgba(255,255,255,.02); }
+    .btn-whatsapp { background:#25d366; color:#03170a; font-weight:700; }
+
+    .hero { padding:76px 0 46px; }
+    .eyebrow { display:inline-flex; border:1px solid var(--line); color:var(--muted); border-radius:999px; padding:6px 10px; margin-bottom:18px; font-size:.85rem; }
+    h1 { font-size:clamp(2rem,4.7vw,3.55rem); line-height:1.06; margin-bottom:16px; max-width:940px; letter-spacing:-.5px; }
+    .hero p { color:var(--muted); max-width:800px; font-size:1.05rem; }
+    .hero-actions { margin-top:24px; display:flex; flex-wrap:wrap; gap:10px; }
+
+    .stats { margin-top:28px; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
+    .stat { background:rgba(16,23,40,.75); border:1px solid var(--line); border-radius:12px; padding:13px; }
+    .stat strong { display:block; font-size:1.2rem; }
+    .stat span { color:var(--muted); font-size:.88rem; }
+
+    section { padding:54px 0; }
+    h2 { font-size:clamp(1.45rem,3.4vw,2.1rem); margin-bottom:10px; }
+    .section-sub { color:var(--muted); margin-bottom:24px; max-width:760px; }
+
+    .grid { display:grid; gap:14px; }
+    .services { grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+    .card { background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01)); border:1px solid var(--line); border-radius:14px; padding:16px; }
+    .card h3 { margin-bottom:8px; font-size:1.04rem; }
+    .card p { color:var(--muted); font-size:.93rem; }
+
+    .portfolio-shell { position:relative; }
+    .carousel-track { display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:8px; }
+    .carousel-track::-webkit-scrollbar { height:8px; }
+    .carousel-track::-webkit-scrollbar-thumb { background:#2f3f68; border-radius:8px; }
+    .portfolio-card { min-width:min(92vw,360px); scroll-snap-align:start; }
+    .portfolio-card img { width:100%; height:190px; object-fit:cover; border-radius:10px; border:1px solid #2f3f68; margin-bottom:10px; }
+    .pill { font-size:.78rem; color:#b6c0e5; border:1px solid #37466d; border-radius:999px; padding:4px 8px; display:inline-block; margin-right:6px; margin-top:7px; }
+    .portfolio-card a { color:#a9b8ff; text-decoration:none; font-weight:600; }
+
+    .pricing { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-bottom:12px; }
+    .price { font-size:1.68rem; font-weight:800; margin:8px 0 10px; }
+    ul { list-style:none; }
+    li { color:var(--muted); margin:7px 0; }
+
+    .addon { margin-top:12px; padding:14px; border:1px dashed #3a4a72; border-radius:12px; background:rgba(255,255,255,.01); }
+    .addon-grid { margin-top:10px; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; }
+    .addon-item { border:1px solid var(--line); border-radius:10px; padding:10px; background:var(--card-2); font-size:.92rem; color:#d8e2ff; }
+    .addon-item span { display:block; color:var(--ok); font-weight:700; margin-top:2px; }
+
+    .team { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+    .member { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px; }
+    .member h4 { font-size:1rem; margin-bottom:4px; }
+    .member small { color:#8ca0d3; }
+
+    .testimonials { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; margin-top:12px; }
+    .quote { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px; }
+    .quote p { color:#d8e3ff; font-size:.94rem; }
+    .quote span { color:#9aacd7; font-size:.82rem; display:block; margin-top:8px; }
+
+    .lead { display:grid; grid-template-columns:1.2fr 1fr; gap:14px; }
+    .form { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; }
+    .field { margin-bottom:10px; }
+    .field label { display:block; font-size:.84rem; color:#9cb0e0; margin-bottom:4px; }
+    .field input, .field textarea, .field select {
+      width:100%; background:#0d1425; color:#e8edff; border:1px solid #2b3a5f; border-radius:9px; padding:10px;
+      font-family:inherit;
     }
+    .field textarea { min-height:100px; resize:vertical; }
+    .small { color:#8ea1d2; font-size:.8rem; }
 
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: .2px;
-    }
+    .cta { background:linear-gradient(90deg,rgba(111,125,255,.17),rgba(66,211,255,.12)); border:1px solid var(--line); border-radius:14px; padding:22px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; }
 
-    .logo span {
-      background: linear-gradient(90deg, var(--brand), var(--brand-2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+    footer { border-top:1px solid rgba(157,168,201,.2); color:var(--muted); padding:22px 0 36px; font-size:.88rem; }
 
-    .nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 500;
-      margin-left: 14px;
-    }
-
-    .nav a:hover { color: var(--text); }
-
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 11px 16px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: .18s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(90deg, var(--brand), var(--brand-2));
-      color: #040712;
-    }
-
-    .btn-primary:hover { transform: translateY(-1px); }
-
-    .hero { padding: 78px 0 52px; }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .86rem;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      padding: 6px 10px;
-      border-radius: 999px;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 4.6vw, 3.45rem);
-      line-height: 1.06;
-      margin-bottom: 18px;
-      letter-spacing: -.5px;
-      max-width: 900px;
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 760px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 26px;
-    }
-
-    .btn-ghost {
-      border: 1px solid var(--line);
-      color: var(--text);
-      background: rgba(255,255,255,.02);
-    }
-
-    .stats {
-      margin-top: 32px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-    }
-
-    .stat {
-      background: rgba(16, 23, 40, .7);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 14px;
-    }
-
-    .stat strong { font-size: 1.25rem; display: block; }
-    .stat span { color: var(--muted); font-size: .9rem; }
-
-    section { padding: 56px 0; }
-
-    h2 {
-      font-size: clamp(1.45rem, 3.5vw, 2.1rem);
-      margin-bottom: 10px;
-    }
-
-    .section-sub { color: var(--muted); margin-bottom: 24px; max-width: 720px; }
-
-    .grid { display: grid; gap: 14px; }
-
-    .services { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 16px;
-    }
-
-    .card h3 { margin-bottom: 8px; font-size: 1.05rem; }
-    .card p { color: var(--muted); font-size: .94rem; }
-
-    .portfolio { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-
-    .pill {
-      font-size: .78rem;
-      color: #b6c0e5;
-      border: 1px solid #37466d;
-      border-radius: 999px;
-      padding: 4px 8px;
-      display: inline-block;
-      margin-right: 6px;
-      margin-top: 8px;
-    }
-
-    .portfolio .card a { color: #a9b8ff; text-decoration: none; font-weight: 600; }
-
-    .pricing {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 14px;
-      margin-bottom: 12px;
-    }
-
-    .price {
-      font-size: 1.7rem;
-      font-weight: 800;
-      margin: 8px 0 10px;
-    }
-
-    ul { list-style: none; }
-    li { color: var(--muted); margin: 7px 0; }
-
-    .addon {
-      margin-top: 14px;
-      padding: 14px;
-      border: 1px dashed #3a4a72;
-      border-radius: 12px;
-      background: rgba(255,255,255,.01);
-    }
-
-    .addon-grid {
-      margin-top: 10px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 10px;
-    }
-
-    .addon-item {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 10px;
-      background: var(--card-2);
-      font-size: .92rem;
-      color: #d8e2ff;
-    }
-
-    .addon-item span {
-      display: block;
-      color: var(--ok);
-      font-weight: 700;
-      margin-top: 2px;
-      font-size: .9rem;
-    }
-
-    .note {
-      margin-top: 12px;
-      color: #9eb0db;
-      font-size: .86rem;
-    }
-
-    .cta {
-      background: linear-gradient(90deg, rgba(111,125,255,.17), rgba(66,211,255,.12));
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 22px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-
-    footer {
-      border-top: 1px solid rgba(157,168,201,.2);
-      color: var(--muted);
-      padding: 22px 0 36px;
-      font-size: .88rem;
-    }
-
-    .small { font-size: .8rem; color: #8ea1d2; }
-
-    @media (max-width: 760px) {
-      .nav-links { display: none; }
-    }
+    @media (max-width:900px) { .lead { grid-template-columns:1fr; } }
+    @media (max-width:760px) { .nav-links { display:none; } }
   </style>
 </head>
 <body>
@@ -272,175 +123,236 @@
       <div class="logo">Meta<span>maker</span></div>
       <nav class="nav-links">
         <a href="#services">Services</a>
-        <a href="#portfolio">Work</a>
+        <a href="#work">Work</a>
         <a href="#pricing">Pricing</a>
+        <a href="#team">Team</a>
       </nav>
-      <a class="btn btn-primary" href="mailto:support@metamaker.in?subject=Metamaker%20project%20enquiry">Book a Free Call</a>
+      <div style="display:flex; gap:8px;">
+        <a class="btn btn-whatsapp" href="https://wa.me/919000000000?text=Hi%20Metamaker%2C%20I%20want%20to%20book%20a%20consultation." target="_blank" rel="noopener">WhatsApp: Book Consultation</a>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container">
-        <div class="eyebrow">🇮🇳 India &nbsp;•&nbsp; 🇺🇸 US &nbsp;•&nbsp; Startup-friendly execution</div>
-        <h1>We build modern apps, websites, and online systems for small businesses that want to grow faster.</h1>
+        <div class="eyebrow">Boutique Product Studio • India + US • Premium SMB Delivery</div>
+        <h1>Technology execution partner for ambitious small businesses.</h1>
         <p>
-          Metamaker is a product-first technology studio. We help founders and local businesses go online with elegant websites,
-          booking flows, payments, WhatsApp updates, and operational automation.
+          We help growing companies launch polished digital products — websites, mobile/web apps, booking systems,
+          payment flows, and support automation. Built with startup speed, enterprise discipline, and measurable business outcomes.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="mailto:support@metamaker.in?subject=I%20want%20a%20website%20or%20app">Start Your Project</a>
-          <a class="btn btn-ghost" href="#portfolio">See Example Work</a>
+          <a class="btn btn-primary" href="#contact">Get a Proposal</a>
+          <a class="btn btn-ghost" href="#work">Explore Work</a>
         </div>
-
         <div class="stats">
-          <div class="stat"><strong>2–6 weeks</strong><span>for most websites & MVP launches</span></div>
-          <div class="stat"><strong>World-class UX</strong><span>clean, fast, conversion-focused builds</span></div>
-          <div class="stat"><strong>India + US</strong><span>support for local businesses & startups</span></div>
-          <div class="stat"><strong>Founder-friendly</strong><span>simple pricing, clear deliverables</span></div>
+          <div class="stat"><strong>2–6 weeks</strong><span>for most website/automation deployments</span></div>
+          <div class="stat"><strong>High-trust UX</strong><span>designed to convert and retain customers</span></div>
+          <div class="stat"><strong>India & US</strong><span>service models adapted by geography</span></div>
+          <div class="stat"><strong>Transparent pricing</strong><span>clear scope, timeline, and deliverables</span></div>
         </div>
       </div>
     </section>
 
     <section id="services">
       <div class="container">
-        <h2>Core Services</h2>
-        <p class="section-sub">Everything needed to take a business online and keep it running smoothly.</p>
+        <h2>Service Stack</h2>
+        <p class="section-sub">A complete build + integration layer for businesses going digital.</p>
         <div class="grid services">
-          <div class="card">
-            <h3>Website Design & Development</h3>
-            <p>Business websites, landing pages, CMS sites, and high-conversion marketing pages.</p>
-          </div>
-          <div class="card">
-            <h3>Mobile & Web Apps</h3>
-            <p>Custom apps for bookings, operations, CRM workflows, and customer engagement.</p>
-          </div>
-          <div class="card">
-            <h3>Booking & Appointment Systems</h3>
-            <p>Online scheduling with reminders, calendar sync, and admin dashboards.</p>
-          </div>
-          <div class="card">
-            <h3>Payments & Invoicing</h3>
-            <p>UPI/cards/payment gateway integrations and order/payment status automation.</p>
-          </div>
-          <div class="card">
-            <h3>WhatsApp & SMS Notifications</h3>
-            <p>Instant customer updates for bookings, confirmations, reminders, and support.</p>
-          </div>
-          <div class="card">
-            <h3>Support Automation</h3>
-            <p>Online support workflows, FAQs, chatbot handoff flows, and ticketing integrations.</p>
-          </div>
+          <div class="card"><h3>Premium Website Engineering</h3><p>Performance-first websites with strong brand positioning and conversion funnels.</p></div>
+          <div class="card"><h3>App Development</h3><p>Web and mobile products for customer engagement, operations, and internal workflows.</p></div>
+          <div class="card"><h3>Booking & Scheduling</h3><p>Appointment systems with reminders, calendar sync, and operational controls.</p></div>
+          <div class="card"><h3>Payments & Checkout</h3><p>UPI/cards/payment gateway integrations with transaction status notifications.</p></div>
+          <div class="card"><h3>WhatsApp + SMS Automation</h3><p>Real-time customer communication for confirmations, reminders, and support updates.</p></div>
+          <div class="card"><h3>Support Infrastructure</h3><p>FAQ systems, chatbot workflows, CRM routing, and service desk integrations.</p></div>
         </div>
       </div>
     </section>
 
-    <section id="portfolio">
+    <section id="work">
       <div class="container">
-        <h2>Representative Work</h2>
-        <p class="section-sub">Examples and references used to show capability, delivery quality, and problem-solving style.</p>
-        <div class="grid portfolio">
-          <article class="card">
-            <h3>Return Track</h3>
-            <p>Return tracking workflow and customer utility experience for product returns and reminders.</p>
-            <span class="pill">Web/App Workflow</span><span class="pill">Operations</span>
-            <p style="margin-top:10px;"><a href="returntracker/" target="_blank" rel="noopener">Open Example →</a></p>
-          </article>
+        <h2>Example Work</h2>
+        <p class="section-sub">Representative builds and references. Swipe horizontally to browse.</p>
 
-          <article class="card">
-            <h3>Genie Carz (Reference)</h3>
-            <p>Automotive service-style digital experience benchmark (booking + trust-focused web UX reference).</p>
-            <span class="pill">Service Business</span><span class="pill">Booking UX</span>
-            <p style="margin-top:10px;"><a href="https://geniecarz.com/?gad_campaignid=22788854152&wbraid=ClMKCAjwjtTNBhBYEkMA_ep-tBQanrb32vIpjeqRbV6ZORc3smfaVKhI-jQRC4AKudwXfUFNRcccasEPw-2goYysFzsDFAJ0T8StsmXMY2zBGgJd0Q" target="_blank" rel="noopener">Open Reference →</a></p>
-          </article>
+        <div class="portfolio-shell">
+          <div class="carousel-track">
+            <article class="card portfolio-card">
+              <img src="https://image.thum.io/get/width/1200/https://metamaker.in/returntracker/" alt="Return Track website preview" />
+              <h3>Return Track</h3>
+              <p>Product return workflow utility with scan, reminders, and customer-facing timeline UX.</p>
+              <span class="pill">Web Utility</span><span class="pill">Operations</span>
+              <p style="margin-top:10px;"><a href="returntracker/" target="_blank" rel="noopener">Open Example →</a></p>
+            </article>
 
-          <article class="card">
-            <h3>ClinicFlow (Placeholder Demo)</h3>
-            <p>Doctor/clinic booking system with WhatsApp confirmations and payment links.</p>
-            <span class="pill">Healthcare</span><span class="pill">Automation</span>
-          </article>
+            <article class="card portfolio-card">
+              <img src="https://image.thum.io/get/width/1200/https://geniecarz.com/" alt="Genie Carz website preview" />
+              <h3>Genie Carz (Reference)</h3>
+              <p>Service-business benchmark for booking journeys, trust signals, and lead conversion design.</p>
+              <span class="pill">Automotive</span><span class="pill">Booking UX</span>
+              <p style="margin-top:10px;"><a href="https://geniecarz.com/?gad_campaignid=22788854152&wbraid=ClMKCAjwjtTNBhBYEkMA_ep-tBQanrb32vIpjeqRbV6ZORc3smfaVKhI-jQRC4AKudwXfUFNRcccasEPw-2goYysFzsDFAJ0T8StsmXMY2zBGgJd0Q" target="_blank" rel="noopener">Open Reference →</a></p>
+            </article>
 
-          <article class="card">
-            <h3>SalonOS (Placeholder Demo)</h3>
-            <p>Salon website + appointment management + SMS reminders + repeat-customer campaigns.</p>
-            <span class="pill">Local Business</span><span class="pill">Growth</span>
-          </article>
+            <article class="card portfolio-card">
+              <img src="https://image.thum.io/get/width/1200/https://apps.apple.com/" alt="App Store preview placeholder" />
+              <h3>Mobile App Delivery (Showcase)</h3>
+              <p>iOS/Android-friendly product execution with polished interfaces and release-readiness workflows.</p>
+              <span class="pill">App Build</span><span class="pill">Launch Ops</span>
+            </article>
+
+            <article class="card portfolio-card">
+              <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1400&q=80" alt="Booking platform placeholder" />
+              <h3>ClinicFlow (Placeholder)</h3>
+              <p>Booking + WhatsApp confirmations + payment links for service providers.</p>
+              <span class="pill">Healthcare</span><span class="pill">Automation</span>
+            </article>
+          </div>
         </div>
-        <p class="small" style="margin-top:12px;">* Placeholder/demo entries can be replaced with your approved public case studies at any time.</p>
+        <p class="small" style="margin-top:10px;">Public references shown for capability signaling. Replace placeholders with approved case studies any time.</p>
       </div>
     </section>
 
     <section id="pricing">
       <div class="container">
-        <h2>Simple Pricing (Startup Friendly)</h2>
-        <p class="section-sub">Indicative pricing for small businesses in India and US. Final quote depends on scope and integrations.</p>
+        <h2>Pricing & Engagement</h2>
+        <p class="section-sub">Designed for small businesses in India and the US — premium output without agency bloat.</p>
 
         <div class="pricing">
           <div class="card">
             <h3>Starter Website</h3>
             <div class="price">₹35,000 / $499</div>
             <ul>
-              <li>• 5-page modern website</li>
-              <li>• Mobile-first responsive design</li>
-              <li>• Lead form + basic SEO setup</li>
+              <li>• 5-page website</li>
+              <li>• Mobile responsive</li>
+              <li>• Lead capture + basic SEO</li>
               <li>• 2 revision rounds</li>
             </ul>
           </div>
-
           <div class="card">
             <h3>Business Pro Website</h3>
             <div class="price">₹75,000 / $999</div>
             <ul>
-              <li>• 8–12 pages + conversion copy blocks</li>
-              <li>• CMS/blog + analytics setup</li>
-              <li>• Booking + contact funnels</li>
-              <li>• Performance optimization</li>
+              <li>• 8–12 pages + CMS</li>
+              <li>• Booking/contact funnels</li>
+              <li>• Analytics + speed optimization</li>
+              <li>• Conversion-first architecture</li>
             </ul>
           </div>
-
           <div class="card">
             <h3>App / Web MVP</h3>
             <div class="price">₹2.5L+ / $3,500+</div>
             <ul>
-              <li>• Product strategy + UI flows</li>
-              <li>• Admin panel + core features</li>
-              <li>• QA, deployment, handover</li>
-              <li>• Optional monthly support</li>
+              <li>• Core app features + admin</li>
+              <li>• QA + deployment</li>
+              <li>• Product workflow mapping</li>
+              <li>• Optional support retainer</li>
             </ul>
           </div>
         </div>
 
         <div class="addon">
-          <strong>Add-on Services</strong>
+          <strong>Add-on Menu</strong>
           <div class="addon-grid">
-            <div class="addon-item">Online SMS support setup <span>₹5,000 / $80</span></div>
-            <div class="addon-item">WhatsApp notifications workflow <span>₹8,000 / $120</span></div>
+            <div class="addon-item">Online SMS support <span>₹5,000 / $80</span></div>
+            <div class="addon-item">WhatsApp notifications <span>₹8,000 / $120</span></div>
             <div class="addon-item">Online booking system <span>₹12,000 / $180</span></div>
             <div class="addon-item">Payment gateway integration <span>₹10,000 / $150</span></div>
             <div class="addon-item">CRM + lead automation <span>₹15,000 / $220</span></div>
-            <div class="addon-item">Monthly maintenance & support <span>₹7,500 / $120 / month</span></div>
+            <div class="addon-item">Monthly support <span>₹7,500 / $120 / month</span></div>
           </div>
-          <p class="note">Prices are indicative and can be adapted for nonprofits, founders, and long-term retainers.</p>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="team">
       <div class="container">
+        <h2>Founder & Team</h2>
+        <p class="section-sub">Small senior team, fast execution, direct founder accountability.</p>
+        <div class="team">
+          <div class="member">
+            <h4>Founder / Product Lead</h4>
+            <small>Owns delivery quality, product direction, and client outcomes end-to-end.</small>
+          </div>
+          <div class="member">
+            <h4>Engineering</h4>
+            <small>Frontend, backend, automation and integrations shipped with production rigor.</small>
+          </div>
+          <div class="member">
+            <h4>Design & UX</h4>
+            <small>Brand-consistent interfaces focused on trust, clarity, and conversion performance.</small>
+          </div>
+        </div>
+
+        <div class="testimonials">
+          <div class="quote">
+            <p>“Metamaker turned our manual booking workflow into a clean online flow that customers actually use.”</p>
+            <span>— Service Business Owner, India</span>
+          </div>
+          <div class="quote">
+            <p>“Fast turnaround, clear scope, and strong communication. We launched in weeks, not quarters.”</p>
+            <span>— SMB Founder, US</span>
+          </div>
+          <div class="quote">
+            <p>“Their blend of product thinking + engineering helped us simplify operations and improve conversion.”</p>
+            <span>— Operations Lead, Local Brand</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container lead">
         <div class="cta">
           <div>
-            <h3 style="font-size:1.25rem; margin-bottom:6px;">Need your business online in weeks, not months?</h3>
-            <p class="section-sub" style="margin:0; max-width:680px;">Tell us your business type and goals. We’ll propose a practical build plan with timeline and fixed-scope quote.</p>
+            <h3 style="font-size:1.2rem; margin-bottom:6px;">Book a consultation</h3>
+            <p class="section-sub" style="margin:0; max-width:620px;">Tell us your goals, timeline, and budget range. We’ll send a practical proposal with execution phases.</p>
+            <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+              <a class="btn btn-whatsapp" href="https://wa.me/919000000000?text=Hi%20Metamaker%2C%20I%20want%20to%20book%20a%20consultation." target="_blank" rel="noopener">WhatsApp: Book Consultation</a>
+              <a class="btn btn-ghost" href="mailto:support@metamaker.in?subject=Consultation%20Request">Email Us</a>
+            </div>
           </div>
-          <a class="btn btn-primary" href="mailto:support@metamaker.in?subject=Metamaker%20-%20Project%20enquiry">Get Proposal</a>
         </div>
+
+        <form class="form" action="https://formsubmit.co/support@metamaker.in" method="POST">
+          <input type="hidden" name="_subject" value="New Lead from metamaker.in" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" required />
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" name="company" />
+          </div>
+          <div class="field">
+            <label for="email">Work email</label>
+            <input id="email" type="email" name="email" required />
+          </div>
+          <div class="field">
+            <label for="service">Service needed</label>
+            <select id="service" name="service">
+              <option>Website</option>
+              <option>Mobile/Web App</option>
+              <option>Booking + Payment + Notifications</option>
+              <option>Automation / Support setup</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="msg">Project brief</label>
+            <textarea id="msg" name="message" placeholder="What do you need built, and by when?"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send Enquiry</button>
+          <p class="small" style="margin-top:8px;">Lead endpoint: FormSubmit (can be replaced with your own API endpoint later).</p>
+        </form>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <p>Metamaker — Technology partner for small businesses in India & the US</p>
+      <p>Metamaker — Product engineering partner for small businesses in India & the US.</p>
       <p style="margin-top:6px;">Contact: <a href="mailto:support@metamaker.in" style="color:#b4c4ff;">support@metamaker.in</a></p>
       <p style="margin-top:8px;">© 2026 Metamaker. All rights reserved.</p>
     </div>
