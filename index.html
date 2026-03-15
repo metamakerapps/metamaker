@@ -468,6 +468,8 @@
       border: 1px solid var(--line);
       background: var(--panel-2);
       box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
     }
 
     .tilt {
@@ -476,14 +478,105 @@
       transition: transform .2s ease;
     }
 
-    .work-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
+    .work-media {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
       border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top, rgba(122,125,255,.16), transparent 45%),
+        linear-gradient(180deg, rgba(8, 14, 30, 0.95), rgba(7, 11, 25, 0.98));
     }
 
-    .work-body { padding: 16px; }
+    .work-carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .work-slide {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity .45s ease;
+    }
+
+    .work-slide.active { opacity: 1; }
+
+    .work-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      filter: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.28));
+    }
+
+    .work-slide.is-phone img {
+      width: auto;
+      max-width: min(100%, 210px);
+      border-radius: 24px;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4);
+    }
+
+    .work-controls {
+      position: absolute;
+      inset: auto 14px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .work-nav {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(157, 179, 236, 0.28);
+      border-radius: 999px;
+      background: rgba(7, 12, 26, 0.74);
+      color: var(--text);
+      font-size: 1rem;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+
+    .work-dots {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(7, 12, 26, 0.7);
+      border: 1px solid rgba(157, 179, 236, 0.18);
+      backdrop-filter: blur(8px);
+    }
+
+    .work-dot {
+      width: 8px;
+      height: 8px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(184, 199, 234, 0.38);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .work-dot.active { background: var(--brand-2); }
+
+    .work-body {
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .work-body p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
 
     .pill {
       display: inline-flex;
@@ -502,6 +595,11 @@
       color: #9bc7ff;
       text-decoration: none;
       font-weight: 600;
+    }
+
+    .work-pills {
+      display: flex;
+      flex-wrap: wrap;
     }
 
     .pricing-wrap {
@@ -770,6 +868,7 @@
       .ai-grid { grid-template-columns: 1fr; }
       .hero { padding-top: 62px; }
       .container { width: min(1180px, calc(100% - 24px)); }
+      .work-media { height: 280px; }
     }
   </style>
 </head>
@@ -945,27 +1044,85 @@
     <section id="work" class="reveal">
       <div class="container">
         <h2>Selected Work</h2>
-        <p class="section-sub">One strong preview per product — clean, focused proof of capability.</p>
+        <p class="section-sub">Swipe through actual product screens and site sections. Each project uses the same media frame so the cards stay aligned.</p>
 
         <div class="portfolio-grid">
           <article class="work-card">
-            <img src="assets/work/returntrack-home.png" alt="Return Track app preview" />
+            <div class="work-media">
+              <div class="work-carousel" data-carousel data-interval="2200" aria-label="Return Track screenshots">
+                <figure class="work-slide is-phone active">
+                  <img src="assets/work/returntracker-01.webp" alt="Return Track sign in screen" />
+                </figure>
+                <figure class="work-slide is-phone">
+                  <img src="assets/work/returntracker-02.webp" alt="Return Track returns dashboard" />
+                </figure>
+                <figure class="work-slide is-phone">
+                  <img src="assets/work/returntracker-03.webp" alt="Return Track add new item flow" />
+                </figure>
+                <figure class="work-slide is-phone">
+                  <img src="assets/work/returntracker-04.webp" alt="Return Track scan receipt screen" />
+                </figure>
+                <figure class="work-slide is-phone">
+                  <img src="assets/work/returntracker-05.webp" alt="Return Track subscription details screen" />
+                </figure>
+                <div class="work-controls">
+                  <button class="work-nav" type="button" data-carousel-prev aria-label="Previous Return Track screenshot">‹</button>
+                  <div class="work-dots" role="tablist" aria-label="Return Track screenshot selector">
+                    <button class="work-dot active" type="button" data-carousel-dot="0" aria-label="Show Return Track screenshot 1"></button>
+                    <button class="work-dot" type="button" data-carousel-dot="1" aria-label="Show Return Track screenshot 2"></button>
+                    <button class="work-dot" type="button" data-carousel-dot="2" aria-label="Show Return Track screenshot 3"></button>
+                    <button class="work-dot" type="button" data-carousel-dot="3" aria-label="Show Return Track screenshot 4"></button>
+                    <button class="work-dot" type="button" data-carousel-dot="4" aria-label="Show Return Track screenshot 5"></button>
+                  </div>
+                  <button class="work-nav" type="button" data-carousel-next aria-label="Next Return Track screenshot">›</button>
+                </div>
+              </div>
+            </div>
             <div class="work-body">
               <h3>Return Track</h3>
-              <p style="color:var(--muted); font-size:.92rem;">iOS utility app that helps users track return windows, deadlines, and refunds with clarity.</p>
-              <span class="pill">iOS Product</span>
-              <span class="pill">Consumer Utility</span>
+              <p>iOS utility app that helps users track return windows, deadlines, receipts, and refunds with a clean mobile-first flow.</p>
+              <div class="work-pills">
+                <span class="pill">iOS Product</span>
+                <span class="pill">Consumer Utility</span>
+              </div>
               <a class="work-link" href="https://apps.apple.com/us/app/return-track/id6758237021" target="_blank" rel="noopener">View on App Store →</a>
             </div>
           </article>
 
           <article class="work-card">
-            <img src="assets/work/geniecarz-preview.svg" alt="Genie Carz reference preview" />
+            <div class="work-media">
+              <div class="work-carousel" data-carousel data-interval="2600" aria-label="Genie Carz screenshots">
+                <figure class="work-slide active">
+                  <img src="assets/work/geniecarz-01.png" alt="Genie Carz hero section" />
+                </figure>
+                <figure class="work-slide">
+                  <img src="assets/work/geniecarz-02.png" alt="Genie Carz process section" />
+                </figure>
+                <figure class="work-slide">
+                  <img src="assets/work/geniecarz-03.png" alt="Genie Carz landing section and testimonial heading" />
+                </figure>
+                <figure class="work-slide">
+                  <img src="assets/work/geniecarz-04.png" alt="Genie Carz FAQ section" />
+                </figure>
+                <div class="work-controls">
+                  <button class="work-nav" type="button" data-carousel-prev aria-label="Previous Genie Carz screenshot">‹</button>
+                  <div class="work-dots" role="tablist" aria-label="Genie Carz screenshot selector">
+                    <button class="work-dot active" type="button" data-carousel-dot="0" aria-label="Show Genie Carz screenshot 1"></button>
+                    <button class="work-dot" type="button" data-carousel-dot="1" aria-label="Show Genie Carz screenshot 2"></button>
+                    <button class="work-dot" type="button" data-carousel-dot="2" aria-label="Show Genie Carz screenshot 3"></button>
+                    <button class="work-dot" type="button" data-carousel-dot="3" aria-label="Show Genie Carz screenshot 4"></button>
+                  </div>
+                  <button class="work-nav" type="button" data-carousel-next aria-label="Next Genie Carz screenshot">›</button>
+                </div>
+              </div>
+            </div>
             <div class="work-body">
-              <h3>Genie Carz (Reference)</h3>
-              <p style="color:var(--muted); font-size:.92rem;">Reference benchmark for trust-first service pages and conversion-led enquiry architecture.</p>
-              <span class="pill">Automotive</span>
-              <span class="pill">Website Funnel</span>
+              <h3>Genie Carz</h3>
+              <p>Used car buying/selling website with conversion-led landing sections, trust-building process blocks, and FAQ-driven sales support.</p>
+              <div class="work-pills">
+                <span class="pill">Automotive</span>
+                <span class="pill">Website Funnel</span>
+              </div>
               <a class="work-link" href="https://geniecarz.com/" target="_blank" rel="noopener">Open Website →</a>
             </div>
           </article>
@@ -1208,6 +1365,51 @@
         if (rafId) cancelAnimationFrame(rafId);
         el.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)';
       });
+    });
+
+    // Auto-rotating work carousels with manual controls.
+    document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+      const slides = Array.from(carousel.querySelectorAll('.work-slide'));
+      const dots = Array.from(carousel.querySelectorAll('[data-carousel-dot]'));
+      const prev = carousel.querySelector('[data-carousel-prev]');
+      const next = carousel.querySelector('[data-carousel-next]');
+      const intervalMs = Number(carousel.dataset.interval || 4000);
+      let index = 0;
+      let timerId = null;
+
+      const render = (nextIndex) => {
+        index = (nextIndex + slides.length) % slides.length;
+        slides.forEach((slide, slideIndex) => slide.classList.toggle('active', slideIndex === index));
+        dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === index));
+      };
+
+      const restart = () => {
+        if (prefersReducedMotion || slides.length < 2) return;
+        window.clearInterval(timerId);
+        timerId = window.setInterval(() => render(index + 1), intervalMs);
+      };
+
+      prev?.addEventListener('click', () => {
+        render(index - 1);
+        restart();
+      });
+
+      next?.addEventListener('click', () => {
+        render(index + 1);
+        restart();
+      });
+
+      dots.forEach((dot, dotIndex) => {
+        dot.addEventListener('click', () => {
+          render(dotIndex);
+          restart();
+        });
+      });
+
+      carousel.addEventListener('pointerenter', () => window.clearInterval(timerId));
+      carousel.addEventListener('pointerleave', restart);
+      render(0);
+      restart();
     });
   </script>
 </body>
