@@ -637,6 +637,109 @@
 
     .tiny { font-size: .78rem; color: #8ca1d3; }
 
+    .flow-section {
+      padding-top: 36px;
+      padding-bottom: 20px;
+    }
+
+    .flow-svg {
+      width: 100%;
+      height: 120px;
+      display: block;
+      opacity: .7;
+      filter: drop-shadow(0 8px 18px rgba(49,214,255,.16));
+    }
+
+    .flow-path {
+      fill: none;
+      stroke: rgba(108, 196, 255, .62);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-dasharray: 8 10;
+      animation: flowDash 12s linear infinite;
+    }
+
+    .flow-path.alt {
+      stroke: rgba(142, 112, 255, .55);
+      animation-duration: 16s;
+    }
+
+    @keyframes flowDash {
+      to { stroke-dashoffset: -360; }
+    }
+
+    .chat-showcase {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .chat-panel, .chat-ui {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(10, 16, 33, .84);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .chat-ui {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 330px;
+      gap: 10px;
+    }
+
+    .chat-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #b7c9f2;
+      font-size: .84rem;
+    }
+
+    .chat-window {
+      border: 1px solid rgba(134, 160, 227, .24);
+      border-radius: 12px;
+      padding: 10px;
+      background: rgba(9, 14, 29, .88);
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .bubble {
+      max-width: 86%;
+      border-radius: 12px;
+      padding: 9px 11px;
+      font-size: .85rem;
+      line-height: 1.4;
+      border: 1px solid rgba(134,160,227,.2);
+    }
+
+    .bubble.user {
+      margin-left: auto;
+      background: rgba(49,214,255,.16);
+      color: #dff8ff;
+    }
+
+    .bubble.ai {
+      background: rgba(122,125,255,.16);
+      color: #e9ecff;
+    }
+
+    .chat-input {
+      border: 1px solid rgba(134,160,227,.24);
+      border-radius: 10px;
+      background: rgba(6, 11, 25, .9);
+      color: #a7bae8;
+      padding: 10px;
+      font-size: .84rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
     footer {
       padding: 26px 0 40px;
       border-top: 1px solid rgba(150,169,218,0.16);
@@ -647,7 +750,8 @@
 
     @media (max-width: 1024px) {
       .hero-grid,
-      .contact-grid { grid-template-columns: 1fr; }
+      .contact-grid,
+      .chat-showcase { grid-template-columns: 1fr; }
       .capabilities,
       .pricing-wrap,
       .team-grid,
@@ -686,6 +790,7 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="#capabilities">Capabilities</a>
         <a href="#ai-solutions">AI Solutions</a>
+        <a href="#chat-preview">Chat UX</a>
         <a href="#work">Work</a>
         <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
@@ -701,7 +806,7 @@
         <div class="reveal in">
           <div class="chip">AI-POWERED PRODUCT STUDIO • INDIA + US • STARTUP & SMB FOCUSED</div>
           <h1 class="gradient-text">We engineer intelligent digital systems that make businesses look premium and operate smarter.</h1>
-          <p class="sub">From websites and mobile apps to AI copilots, automated support, bookings, payments, and growth workflows — Metamaker helps ambitious companies move from manual operations to scalable digital execution.</p>
+          <p class="sub">We build websites, apps, and AI workflows that help businesses convert more leads and run faster with less manual work.</p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get Strategic Proposal</a>
@@ -744,7 +849,7 @@
     <section id="capabilities" class="reveal">
       <div class="container">
         <h2>Core Capabilities</h2>
-        <p class="section-sub">Design-forward, engineering-strong solutions that improve customer trust, conversion rates, and execution efficiency.</p>
+        <p class="section-sub">Design + engineering systems built to increase trust, conversion, and operational speed.</p>
 
         <div class="capabilities">
           <article class="cap-card">
@@ -783,7 +888,7 @@
     <section id="ai-solutions" class="reveal">
       <div class="container">
         <h2>AI-Powered Solutions</h2>
-        <p class="section-sub">We don’t bolt AI on top — we architect AI into customer journey, operations, and decision loops for measurable business impact.</p>
+        <p class="section-sub">AI embedded into lead capture, support, follow-ups, and operations from day one.</p>
 
         <div class="ai-block">
           <div class="ai-grid">
@@ -793,6 +898,47 @@
             <div class="ai-item">Internal AI dashboards summarizing bookings, revenue signals, and funnel bottlenecks.</div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="flow-section" aria-hidden="true">
+      <div class="container">
+        <svg class="flow-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path class="flow-path" d="M10,64 C200,8 300,112 480,58 C700,-8 770,118 980,60 C1080,32 1130,42 1190,50" />
+          <path class="flow-path alt" d="M10,78 C170,120 320,20 500,70 C640,108 780,24 960,74 C1080,110 1130,90 1190,94" />
+        </svg>
+      </div>
+    </section>
+
+    <section id="chat-preview" class="reveal">
+      <div class="container chat-showcase">
+        <article class="chat-panel">
+          <h2>AI Chat Experience Preview</h2>
+          <p class="section-sub" style="margin-bottom:10px;">Yes — copy was getting dense. I streamlined key sections, and added this visual chat module so visitors can feel the product experience instantly.</p>
+          <div class="chipline">
+            <span class="mini-chip">Live Lead Qualification</span>
+            <span class="mini-chip">Instant FAQs</span>
+            <span class="mini-chip">Auto Follow-ups</span>
+          </div>
+          <p style="color:var(--muted); font-size:.9rem; margin-top:12px;">This can be embedded on landing pages, support pages, or booking funnels with brand-specific tone and escalation logic.</p>
+        </article>
+
+        <article class="chat-ui" aria-label="Chatbot UI mockup">
+          <div class="chat-top">
+            <span>Metamaker AI Assistant</span>
+            <span>online ●</span>
+          </div>
+          <div class="chat-window">
+            <div class="bubble user">I run a small clinic. Can you set up online booking + WhatsApp reminders?</div>
+            <div class="bubble ai">Absolutely. We can launch a booking page, payment links, and reminders in 2–3 weeks.</div>
+            <div class="bubble user">Can you also track no-shows?</div>
+            <div class="bubble ai">Yes. We add no-show analytics and follow-up automations inside your admin dashboard.</div>
+          </div>
+          <div class="chat-input">
+            <span>Type your message…</span>
+            <span>↵ Send</span>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -830,7 +976,7 @@
     <section id="pricing" class="reveal">
       <div class="container">
         <h2>Engagement Models</h2>
-        <p class="section-sub">Transparent pricing with premium execution standards. Final scope is tailored to business goals and integration depth.</p>
+        <p class="section-sub">Clear pricing. Premium execution. Scope adjusted to your goals.</p>
 
         <div class="pricing-wrap">
           <article class="price-card">
@@ -884,7 +1030,7 @@
     <section class="reveal">
       <div class="container">
         <h2>Founder-Led Delivery</h2>
-        <p class="section-sub">Lean team. Senior ownership. Fast communication. Your project does not disappear into agency layers.</p>
+        <p class="section-sub">Lean team, senior ownership, fast communication.</p>
 
         <div class="team-grid" style="margin-bottom:12px;">
           <article class="team-card">
